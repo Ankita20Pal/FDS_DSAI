@@ -160,6 +160,70 @@ print('\n# Covariance indicates that there is correlation exists between two')
 print('# Correlation coefficiant of 0.818 indicates the relation between two is positive')
 
 
+# In[18]:
+
+
+import matplotlib.pyplot as plt
+from IPython.display import Math, Latex
+from IPython.core.display import Image
+import seaborn as sns
+import numpy as np
+import statsmodels.api as sm
+from scipy.stats import skew
+from scipy.stats import kurtosis
+import pandas as pd
+
+import os
+
+
+# In[19]:
+
+
+pd.set_option("display.max_columns",None)
+pd.options.display.float_format ='{:, .2f}'.format 
+
+
+# In[37]:
+
+
+xls = pd.read_csv('D:/MSC/FDS Practical/Data/diamonds.csv')
+
+
+# In[40]:
+
+
+xls.head()
+
+
+# In[38]:
+
+
+des_df = xls.drop(['id'], axis = 1)
+for col in des.df:
+    if des_df[col].dtype == 'object':
+        des_df = des_df.drop([col], axis = 1)
+        
+des_r = des_df.describe()
+des_r = des_r.rename(index = {'50%': 'median/50%'})
+des_r
+
+
+# In[39]:
+
+
+var_r = des_df.var()
+
+varlist = []
+for col in des_df.columns:
+    if des_df[col].dtye = 'object':
+        continue
+    varlist.appende(round(des_df[col],5))
+df = pd.DataFrame([varlist], columns = des_R.columns, index=['var'])
+mct = des_r.append(df)
+mct
+    
+
+
 # In[ ]:
 
 
